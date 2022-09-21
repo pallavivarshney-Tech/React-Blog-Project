@@ -1,0 +1,209 @@
+* {
+    text-decoration: none;
+
+}
+
+img {
+    border-radius: 10px;
+}
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    transform: rotate(270deg);
+    margin-left: -0.5vw;
+    margin-top: 1.7vw;
+    font-size: 30px;
+}
+.main p{
+    margin-top:10px;
+}
+
+.siren {
+    margin-top: -6vw;
+    margin-left: 48vw;
+    font-size: 60px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    height: 30px;
+}
+
+
+.navlink {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navlink:hover {
+    color:crimson;
+    border-bottom: solid 4px black;
+    /* transform: scaleX(0); */
+    transition: transform 250ms ease-in-out;
+}
+
+
+.head {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    height: 70vh;
+    margin: 20px 0;
+    /* border: 2px solid black; */
+}
+
+.leftimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    width: 70%;
+    height: 100%;
+    background-image: url("https://cdn.pixabay.com/photo/2016/10/14/19/21/canyon-1740973__340.jpg");
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    background-size: 100% 100%;
+}
+.leftimg p{
+    color:white;
+}
+.leftimg img {
+    width: 100%;
+    height: 100%;
+}
+
+.rightimg {
+    width: 30%;
+    height: 100%;
+}
+
+.rightimg img {
+    width: 100%;
+    height: 50%;
+}
+
+.latestData {
+    width: 100%;
+    height: 60vh;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    margin: 20px 0;
+}
+
+.latestData div {
+    width: 25%;
+    color:black;
+}
+.latestData h3,p,h5{
+    color:black;
+}
+
+.articleData {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+
+.rightArticle {
+    width: 70%;
+    height: auto;
+}
+
+.articleimg {
+
+    width: 90%;
+    height: 50vh;
+    margin: auto;
+    background-image: url("https://cdn.pixabay.com/photo/2016/10/18/08/13/travel-1749508__340.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 50;
+    color: white;
+}
+.articleimg p{
+    color:white;
+}
+.artflex {
+    display: flex;
+    width: 100%;
+    min-height: 10%;
+    max-height: 14%;
+    gap: 2%;
+    margin: 30px 0;
+    color: black;
+    padding-bottom: 20px;
+    /* background-color: blanchedalmond; */
+    /* box-shadow: 5px 5px gray; */
+
+}
+
+.artflex div:last-child {
+    width: 70%;
+    /* background-color: chartreuse; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.artflex div:first-child {
+    width: 30%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* padding: 20px; */
+    /* background-color: aqua; */
+}
+
+.artflex img {
+    width: 100%;
+    height: 100%;
+}
+
+.leftArticle {
+    width: 30%;
+    height: auto;
+    padding: 1rem;
+}
+
+.advertisement {
+    width: 100%;
+    height: 600px;
+    border: 2px solid black;
+}
+
+.topStory {
+    width: 100%;
+   
+
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+
+}
+
+.topStory div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 25%;
+}
+.blogPage {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

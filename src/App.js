@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./Components/Navbar";
+import Home from "./Components/Home";
+import Bollywood from "./Components/Bollywood";
+import Hollywood from "./Components/Hollywood";
+import Technology from "./Components/Technology";
+import Fitness from "./Components/Fitness";
+import Tourism from "./Components/Tourism";
+import Food from "./Components/Food";
+import Blog from "./Components/Blog";
+import { useLocation } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+  console.log("Final page location", location);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/category/Bollywood" element={<Bollywood />} />
+          <Route path="/Hollywood" element={<Hollywood />} />
+          <Route path="/Technology" element={<Technology />} />
+          <Route path="/Tourism" element={<Tourism />} />
+          <Route path="/Food" element={<Food />} />
+          <Route path="/Fitness" element={<Fitness />} />
+          {location.state !== null && (
+            <Route path="/Blog" element={<Blog />} />
+            
+          )}
+        </Routes>
+      </div>
+    </>
   );
 }
 
