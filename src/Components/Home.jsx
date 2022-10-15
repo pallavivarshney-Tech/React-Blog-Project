@@ -1,11 +1,19 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Articles from "./Articles";
 import Latest from "./Latest";
 import Story from "./Story";
 import Title from "./Title";
 import Data from "./Data";
-
+import apiData from "./API";
 const Home = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const Fetching = async () => {
+      setData(await apiData());
+    };
+    Fetching();
+  }, [data]);
   return (
     <div style={{ marginBottom: "50px" }}>
       <div className="head">
@@ -29,7 +37,7 @@ const Home = () => {
       <div className="latestData">
       
 
-        {Data.filter((data) => data.Category === "Latest").map((data) => (
+        {data && data.filter((data) => data.Category === "Latest").map((data) => (
           <Latest
             key={data.id}
             title={data.Title}
@@ -44,12 +52,12 @@ const Home = () => {
       <Title title="Latest Articles" />
       <div className="articleData">
         <div className="rightArticle">
-          {Data.filter((data) => data.Category === "Bollywood").map((data) => (
+          {data && data.filter((data) => data.Category === "Bollywood").map((data) => (
             <Articles
               key={data.id}
               title={data.Title}
               img={data.image}
-              pera={data.Description}
+              pera={(data.Description).slice(0,200)}
               category={data.Category}
               date={data.Date}
             />
@@ -63,44 +71,47 @@ const Home = () => {
         <div className="leftArticle">
           <div className="advertisement">Advertisement</div>
           <Title title="Top Posts" />
+          {
+            data.length>1 &&
           <div>
             {/* <Latest /> */}
             <Latest
-              key={Data[0].id}
-              title={Data[0].Title}
-              img={Data[0].image}
-              category={Data[0].Category}
-              date={Data[0].Date}
+              key={data[0].id}
+              title={data[0].Title}
+              img={data[0].image}
+              category={data[0].Category}
+              date={data[0].Date}
+            />
+            <Articles
+              key={data[0].id}
+              title={data[0].Title}
+              img={data[0].image}
+              category={data[0].Category}
+              date={data[0].Date}
             />{" "}
             <Articles
-              key={Data[0].id}
-              title={Data[0].Title}
-              img={Data[0].image}
-              category={Data[0].Category}
-              date={Data[0].Date}
+              key={data[7].id}
+              title={data[7].Title}
+              img={data[7].image}
+              category={data[7].Category}
+              date={data[7].Date}
             />{" "}
             <Articles
-              key={Data[7].id}
-              title={Data[7].Title}
-              img={Data[8].image}
-              category={Data[7].Category}
-              date={Data[7].Date}
+              key={data[14].id}
+              title={data[14].Title}
+              img={data[14].image}
+              category={data[14].Category}
+              date={data[14].Date}
             />{" "}
             <Articles
-              key={Data[14].id}
-              title={Data[14].Title}
-              img={Data[14].image}
-              category={Data[14].Category}
-              date={Data[14].Date}
-            />{" "}
-            <Articles
-              key={Data[20].id}
-              title={Data[20].Title}
-              img={Data[20].image}
-              category={Data[20].Category}
-              date={Data[20].Date}
+              key={data[20].id}
+              title={data[20].Title}
+              img={data[20].image}
+              category={data[20].Category}
+              date={data[20].Date}
             />{" "}
           </div>
+          }
         </div>
       </div>
       <Title title="Top Stories" />

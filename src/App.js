@@ -11,6 +11,7 @@ import Tourism from "./Components/Tourism";
 import Food from "./Components/Food";
 import Blog from "./Components/Blog";
 import { useLocation } from "react-router-dom";
+// import Practice from "./Components/Practice";
 
 function App() {
   const location = useLocation();
@@ -19,6 +20,7 @@ function App() {
     <>
       <div className="container">
         <Navbar />
+        {/* <Practice/> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/category/Bollywood" element={<Bollywood />} />

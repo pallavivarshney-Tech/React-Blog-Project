@@ -1,18 +1,27 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Data from "./Data";
 import Articles from "./Articles";
 import Title from "./Title";
 import Latest from "./Latest";
 import "./Style.css";
+import apiData from "./API";
 
 const Bollywood = () => {
   // const { id, title, Description, category, Date } = Data;
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const Fetching = async () => {
+      setData(await apiData());
+    };
+    Fetching();
+  }, [data]);
   return (
     <div>
       <Title title="Bollywood" />
       <div className="articleData">
         <div className="rightArticle">
-          {Data.filter((data) => data.Category === "Bollywood").map((data) => (
+          {data && data.filter((data) => data.Category === "Bollywood").map((data) => (
             <Articles
               index={data.id}
               title={data.Title}
@@ -26,14 +35,17 @@ const Bollywood = () => {
         <div className="leftArticle">
           <Title title="Top Posts" />
           <div>
-          <Latest
-              key={Data[15].id}
-              title={Data[15].Title}
-              img={Data[15].image}
-              category={Data[15].Category}
-              date={Data[15].Date}
-            />{" "}
-            {Data.filter((data) => data.Category === "Bollywood").map(
+          { data.length>1 &&
+            <Latest 
+              key={data[15].id}
+              title={data[15].Title}
+              img={data[15].image}
+              category={data[15].Category}
+              date={data[15].Date}
+            />
+          }
+          
+            {data && data.filter((data) => data.Category === "Bollywood").map(
               (data) => (
                 <Articles
                   key={data.id}
